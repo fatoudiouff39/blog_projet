@@ -10,5 +10,13 @@ def details_posts(request,id):
 	print("#===*40")
 	print(post)
 	print("#===*40")
-	return render(request,'blog\posts_détail.html',{'post':post})	
+	return render(request,'blog\posts_détail.html',{'post':post})
+
+def home(request):
+     return render(request, 'blog/index.html')
+    
+
+def blog(request):
+    return render(request, 'blog/blog.html')
+
 # Create your views here.
