@@ -1,9 +1,12 @@
-from  django.urls	import	path
-from .views	import	post_list, details_posts, home, blog
+from django .urls import path # type: ignore
+from .views import post_list
+from .views import details_posts , blog , home
+urlpatterns = [
+       path('Post/', post_list, name='post_list'),
 
-urlpatterns	=	[
-	path('',post_list,	name='post_list'),
-	path('<int:id>', details_posts,name='details_posts'),
-	path('home/', home,name='home'),
-    path('blog/', blog,name='blog'),
+       path('post/<int:id>',details_posts,name='post_detail'),
+
+       path('vers_blog/',blog,name='blog'),
+
+       path('index/',home,name='home'),
 ]

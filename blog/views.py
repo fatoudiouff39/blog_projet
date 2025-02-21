@@ -1,5 +1,7 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, redirect,get_object_or_404
 from .models import Post
+
+
 
 def	post_list(request):
 	posts = Post.objects.all().order_by('-created_at')
@@ -17,6 +19,8 @@ def home(request):
     
 
 def blog(request):
-    return render(request, 'blog/blog.html')
+	posts = Post.objects.all().order_by('-created_at')
+
+	return	render(request,	'blog\post_list.html',	{'posts':	posts})
 
 # Create your views here.
